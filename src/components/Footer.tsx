@@ -25,9 +25,14 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigate, onOpenChat
                   <Radio className="w-4 h-4 text-fuchsia-400" />
                 </div>
               </div>
-              <span className="font-sans font-black tracking-wider text-lg text-white">
-                VIVA <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-cyan-400">MOBILE</span>
-              </span>
+              <div className="flex flex-col justify-center">
+                <span className="font-sans font-black tracking-widest text-lg text-transparent bg-clip-text bg-gradient-to-r from-white via-fuchsia-300 to-cyan-400 leading-none">
+                  VIVA
+                </span>
+                <span className="font-mono text-[9px] font-bold tracking-[0.25em] text-fuchsia-400 uppercase mt-0.5">
+                  MOBILE
+                </span>
+              </div>
             </div>
 
             <p className="text-xs text-slate-400 max-w-sm leading-relaxed">

@@ -35,25 +35,30 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         
         {/* Brand Logo */}
         <div 
           onClick={() => onNavigate('hero')}
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink-0"
         >
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-fuchsia-600 via-pink-500 to-cyan-400 p-[2px] shadow-[0_0_20px_rgba(236,72,153,0.4)] group-hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transition-all">
+          <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-fuchsia-600 via-pink-500 to-cyan-400 p-[2px] shadow-[0_0_20px_rgba(236,72,153,0.4)] group-hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transition-all">
             <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-              <Radio className="w-5 h-5 text-fuchsia-400 animate-pulse" />
+              <Radio className="w-4 h-4 sm:w-5 sm:h-5 text-fuchsia-400 animate-pulse" />
             </div>
           </div>
-          <div className="flex flex-col">
-            <span className="font-sans font-black tracking-wider text-xl text-white flex items-center gap-1">
-              VIVA <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-cyan-400">MOBILE</span>
+          <div className="flex flex-col justify-center">
+            <span className="font-sans font-black tracking-widest text-base sm:text-xl text-transparent bg-clip-text bg-gradient-to-r from-white via-fuchsia-300 to-cyan-400 leading-none">
+              VIVA
             </span>
-            <span className="font-mono text-[9px] tracking-widest text-cyan-400 font-bold uppercase flex items-center gap-1">
-              <Zap className="w-2.5 h-2.5 inline fill-cyan-400" /> 5G ULTRA CAPACITY
-            </span>
+            <div className="flex items-center gap-1.5 mt-0.5">
+              <span className="font-mono text-[8px] sm:text-[10px] font-bold tracking-[0.25em] text-fuchsia-400 uppercase">
+                MOBILE
+              </span>
+              <span className="hidden sm:flex font-mono text-[8px] tracking-wider text-cyan-400 font-semibold uppercase items-center gap-0.5 border-l border-slate-800 pl-1.5">
+                <Zap className="w-2 h-2 inline fill-cyan-400" /> 5G ULTRA
+              </span>
+            </div>
           </div>
         </div>
 
@@ -78,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           
           {/* AI Chat Support Trigger */}
           <button
@@ -94,11 +99,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-medium transition-all"
+              className="flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-medium transition-all"
             >
-              <Globe className="w-3.5 h-3.5 text-fuchsia-400" />
+              <Globe className="hidden sm:inline w-3.5 h-3.5 text-fuchsia-400" />
               <span className="text-base leading-none">{LANGUAGE_NAMES[language].flag}</span>
-              <span className="uppercase font-mono font-bold">{language}</span>
+              <span className="uppercase font-mono font-bold text-[10px] sm:text-xs">{language}</span>
               <ChevronDown className={`w-3 h-3 transition-transform ${langOpen ? 'rotate-180' : ''}`} />
             </button>
 
@@ -131,7 +136,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Cart Button */}
           <button
             onClick={onOpenCart}
-            className="relative p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 transition-all group"
+            className="relative p-2 sm:p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 transition-all group"
             aria-label="Open cart"
           >
             <ShoppingBag className="w-4 h-4 group-hover:text-fuchsia-400 transition-colors" />
@@ -145,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300"
+            className="md:hidden p-2 sm:p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>

@@ -52,7 +52,7 @@ export default function App() {
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-fuchsia-500 selection:text-white antialiased">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-fuchsia-500 selection:text-white antialiased overflow-x-hidden w-full relative">
       
       {/* Top sticky navbar */}
       <Navbar
