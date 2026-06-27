@@ -1,0 +1,6 @@
+{
+  "name": "VIVA Mobile",
+  "description": "Futuristic 5G Telecommunication Network & eSIM Store with multi-language AI support",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
