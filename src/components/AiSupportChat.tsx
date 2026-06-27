@@ -6,10 +6,11 @@ import { TRANSLATIONS, LANGUAGE_NAMES } from '../data/translations';
 interface AiSupportChatProps {
   language: Language;
   isOpen: boolean;
+  onOpen: () => void;
   onClose: () => void;
 }
 
-export const AiSupportChat: React.FC<AiSupportChatProps> = ({ language, isOpen, onClose }) => {
+export const AiSupportChat: React.FC<AiSupportChatProps> = ({ language, isOpen, onOpen, onClose }) => {
   const t = TRANSLATIONS[language];
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -38,7 +39,33 @@ export const AiSupportChat: React.FC<AiSupportChatProps> = ({ language, isOpen, 
     });
   }, [language]);
 
-  if (!isOpen) return null;
+  if (!isOpen) {
+    return (
+      <button
+        onClick={onOpen}
+        className="fixed bottom-6 right-6 z-50 group flex items-center gap-3 px-4 py-3 rounded-full bg-slate-900/95 hover:bg-slate-900 backdrop-blur-xl border border-cyan-500/50 hover:border-cyan-400 shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(236,72,153,0.6)] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+        aria-label="Open AI Support Chat"
+      >
+        <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 via-fuchsia-500 to-pink-500 p-[2px]">
+          <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
+            <Bot className="w-5 h-5 text-cyan-400 group-hover:text-fuchsia-400 transition-colors" />
+          </div>
+          <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-slate-950"></span>
+          </span>
+        </div>
+        <div className="flex flex-col text-left pr-2">
+          <span className="font-sans font-black text-sm text-white tracking-wider group-hover:text-cyan-300 transition-colors flex items-center gap-1">
+            VIVA AI <Sparkles className="w-3.5 h-3.5 inline text-fuchsia-400" />
+          </span>
+          <span className="font-mono text-[10px] text-emerald-400 font-bold tracking-widest uppercase">
+            ● 24/7 SUPPORT ONLINE
+          </span>
+        </div>
+      </button>
+    );
+  }
 
   const handleSend = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();

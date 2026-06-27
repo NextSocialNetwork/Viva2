@@ -98,6 +98,7 @@ export default function App() {
       <AiSupportChat
         language={language}
         isOpen={isChatOpen}
+        onOpen={() => setIsChatOpen(true)}
         onClose={() => setIsChatOpen(false)}
       />
 
